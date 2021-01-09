@@ -15,6 +15,15 @@ public class Animal {
     private String type;
     private String moods;
 
+    public Animal() {
+    }
+
+    public Animal( String name, String type, String moods) {
+        this.name = name;
+        this.type = type;
+        this.moods = moods;
+    }
+
     public UUID getId() {
         return id;
     }

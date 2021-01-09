@@ -32,11 +32,14 @@ class ZooapiApplicationTests {
 	 * Add the animal to the zoo.
 	 * @throws Exception
 	 */
+
 	@Test
 	void test_addAnimal() throws Exception {
-		Animal animal = new Animal();
+		Animal animal = new Animal("Tiger","Walking","unhappy");
+		Zoo zoo = new Zoo();
+		zoo.setAnimal(animal);
 		mockMvc.perform(MockMvcRequestBuilders.post("/api/zoo")
-				.content(objectMapper.writeValueAsString(animal))
+				.content(objectMapper.writeValueAsString(zoo))
 				.contentType(MediaType.APPLICATION_JSON)).andExpect(status().isOk())
 				.andDo(print())
 				.andExpect(jsonPath("$.id").exists());
