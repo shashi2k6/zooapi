@@ -6,6 +6,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 @RestController
 public class ZooController {
 
@@ -15,5 +17,10 @@ public class ZooController {
     @PostMapping("/api/zoo")
     public Zoo addAnimal(@RequestBody Zoo zoo){
         return zooService.addAnimal(zoo);
+    }
+
+    @GetMapping("/api/zoo")
+    public List<Zoo> getAnimal(){
+        return zooService.getAllAnimals();
     }
 }
